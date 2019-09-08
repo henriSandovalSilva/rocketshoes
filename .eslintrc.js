@@ -35,5 +35,7 @@ module.exports = {
     'import/named': 'off',
     'react/no-unused-state': 'off',
     'react/state-in-constructor': 'off',
+    'jsx-a11y/control-has-associated-label': 'off',
+    'no-param-reassign': 'off'
   },
 };

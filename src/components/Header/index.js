@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { MdShoppingBasket } from 'react-icons/md';
 
@@ -7,7 +9,7 @@ import { Container, Cart } from './styles';
 
 import logo from '../../assets/images/logo.svg';
 
-export default function Header() {
+function Header({ cartSize }) {
   return (
     <Container>
       <Link to="/">
@@ -17,7 +19,7 @@ export default function Header() {
       <Cart to="/cart">
         <div>
           <h4>Meu carrinho</h4>
-          <p>3 itens</p>
+          <p>{cartSize} itens</p>
         </div>
 
         <MdShoppingBasket size={36} color="#fff" />
@@ -25,3 +27,7 @@ export default function Header() {
     </Container>
   );
 }
+
+export default connect(state => ({
+  cartSize: state.cart.length,
+}))(Header);
